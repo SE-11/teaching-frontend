@@ -1,9 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
+// import { Route, Switch } from "react-router";
+
+// import Login from "./pages/Login";
+// import Index from "./pages/Index/index";
+import HomeNavigation from "./components/HomeNavigation";
+import HomeContent from "./components/HomeContent";
+import { BrowserRouter } from "react-router-dom";
 
 
-function App() {
+function App(props) {
   return (
-    <div>Index</div>
+    <BrowserRouter>
+      <HomeNavigation />
+      <HomeContent />
+    </BrowserRouter>
   );
 }
 
