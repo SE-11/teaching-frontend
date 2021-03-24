@@ -1,0 +1,16 @@
+.student-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    margin-bottom: 16px;
+    /* line-height: 30px; */
+    background: #ffffff;
+    box-shadow: 0px 2px 3px #eeeeee;
+}
+.nav-breadcrumb {
+    margin-left: 30px;
+}
+.student-avatar {
+    margin-right: 45px;
+}

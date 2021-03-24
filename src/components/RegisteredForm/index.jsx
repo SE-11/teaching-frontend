@@ -6,6 +6,10 @@ import { registDataSOrT } from "../../utils/registDataValidate";
 const FormItem = Form.Item;
 
 export default function RegisteredForm(props) {
+    const layout = {
+        labelCol: { span: 8 },
+        wrapperCol: { span: 16 },
+    };
     // 暂时把学号存 localstorage 里
     const onFinish = (values) => {
         // console.log(values);
@@ -47,7 +51,8 @@ export default function RegisteredForm(props) {
     return (
         <div style={{ display: "flex", justifyContent: "center  " }}>
             <Form
-                style={{ width: "300px" }}
+                {...layout}
+                style={{ width: "300px", marginRight: "50px" }}
                 onFinish={onFinish}
             >
                 <FormItem
@@ -116,7 +121,7 @@ export default function RegisteredForm(props) {
                     <Input placeholder="Re-Password" allowClear />
                 </FormItem>
 
-                <FormItem name="identity">
+                <FormItem name="identity" label="角色">
                     <Radio.Group style={{ display: "flex", justifyContent: "space-between" }}>
                         <Radio.Button value="student" style={{ width: "130px", textAlign: "center" }}>学生</Radio.Button>
                         <Radio.Button value="teacher" style={{ width: "130px", textAlign: "center" }}>老师</Radio.Button>
@@ -125,7 +130,10 @@ export default function RegisteredForm(props) {
 
                 <FormItem
                     label="Name"
-                    name="name"    
+                    name="name" 
+                    rules={[
+                        {required: true, message: "请输入您的姓名"}
+                    ]}   
                 >
                     <Input placeholder="Name" allowClear />
                 </FormItem>
@@ -133,11 +141,14 @@ export default function RegisteredForm(props) {
                 <FormItem
                     label="University"
                     name="university"
+                    rules={[
+                        {required: true, message: "请输入您所在的高校"}
+                    ]}
                 >
                     <Input placeholder="University" allowClear />
                 </FormItem>
 
-                <FormItem>
+                <FormItem wrapperCol={{ span: 16, offset: 8 }}>
                     <Button style={{ width: "100%" }} htmlType="submit" type="primary">
                         Registered
                     </Button>

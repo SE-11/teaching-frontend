@@ -1,19 +1,18 @@
 import React from "react";
-// import { Route, Switch } from "react-router";
-
-// import Login from "./pages/Login";
-// import Index from "./pages/Index/index";
 import HomeNavigation from "./components/HomeNavigation";
 import HomeContent from "./components/HomeContent";
-import { BrowserRouter } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
+import Student from "./pages/Student";
+import Teacher from "./pages/Teacher";
 
-
-function App(props) {
+function App() {
+  const HomePage = () => <div><HomeNavigation/><HomeContent/></div>
   return (
-    <BrowserRouter>
-      <HomeNavigation />
-      <HomeContent />
-    </BrowserRouter>
+    <Switch>
+      <Route path="/student" exact component={ Student } />
+      <Route path="/teacher" exact component={ Teacher } />
+      <Route path="/" component={ HomePage } />
+    </Switch>
   );
 }
 
