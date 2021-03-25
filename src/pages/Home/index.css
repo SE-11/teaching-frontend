@@ -1,0 +1,7 @@
+.pic{
+    margin: 0 auto;
+    overflow: hidden;
+    /* position: relative; */
+    background-image: url(https://www.ketangpai.com//img/welcome-bg.1865e6b9.jpg);
+    height: "600px";
+}
