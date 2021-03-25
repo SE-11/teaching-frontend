@@ -7,10 +7,6 @@ import { withRouter } from 'react-router-dom';
 const FormItem = Form.Item;
 
 function LoginForm(props) {
-    const layout = {
-        labelCol: { span: 8 },
-        wrapperCol: { span: 16 },
-    };
     const onFinish = (values) => {
         // console.log(values);
         // 后端
@@ -21,11 +17,17 @@ function LoginForm(props) {
              .then((rsp) => {
                  if(rsp.data.errorCode === 1) {
                      // 根据类型 跳转老师页面还是学生页面
+                     let path;
                      if(rsp.data.userType === "student") {
-                         props.history.replace("/student");
-                         message.success("登录成功!");
+                        window.localStorage.setItem('studentId', rsp.data.id);
+                        path = '/student';
+                        props.history.replace(path);
+                        message.success("登录成功!");
                      } else {
-                         props.history.replace("/teacher")
+                        window.localStorage.setItem('teacherId', rsp.data.id);
+                        path = '/teacher';
+                        props.history.replace(path);
+                        message.success("登录成功!");
                      }
                  }
              })
@@ -33,8 +35,11 @@ function LoginForm(props) {
                  message.error(err);
                  console.log(err);
              });
-
     }
+    const layout = {
+        labelCol: { span: 8 },
+        wrapperCol: { span: 16 },
+    };
     return (
         <div style={{ display: "flex", justifyContent: "center  " }}>
             <Form 

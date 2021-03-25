@@ -1,19 +1,24 @@
 import { Avatar, Breadcrumb, Dropdown, Menu } from 'antd'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import "./index.css";
 const BreadcrumbItem = Breadcrumb.Item;
 const MenuItem = Menu.Item;
 
-export default function NavBar() {
+function NavBar(props) {
+    // console.log(props)
+    
     const menu = (
         <Menu style={{ marginTop: "10px" }}>
-            <MenuItem key="1">学生管理</MenuItem>
-            <MenuItem key="2">课程管理</MenuItem>
-            <MenuItem key="3">设置</MenuItem>
-            <MenuItem key="4">退出</MenuItem>
+            <MenuItem key="1">个人中心</MenuItem>
+            <MenuItem key="2">学生管理</MenuItem>
+            <MenuItem key="3">课程管理</MenuItem>
+            <MenuItem key="4">设置</MenuItem>
+            <MenuItem key="5">退出</MenuItem>
         </Menu>
     );
+
+
     return (
         <div className="student-navbar">
             <div className="nav-breadcrumb">
@@ -22,7 +27,9 @@ export default function NavBar() {
                     <BreadcrumbItem>课程详情</BreadcrumbItem>
                 </Breadcrumb>
             </div>
-            
+
+
+            {/* Dropdown */}
             <div className="student-avatar">
                 <Dropdown
                     placement="bottomCenter"
@@ -30,7 +37,7 @@ export default function NavBar() {
                 >
                     <Link to="/vip">
                         <Avatar
-                            src="http://images.nowcoder.com/head/7m.png"
+                            src={props.teacherInfo.avatar}
                         />
                     </Link>
                 </Dropdown>
@@ -38,3 +45,5 @@ export default function NavBar() {
         </div>
     )
 }
+
+export default withRouter(NavBar);
