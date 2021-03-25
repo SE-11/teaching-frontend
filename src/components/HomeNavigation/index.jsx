@@ -25,9 +25,7 @@ function HomeNavigation(props) {
             <Menu theme="light" mode="horizontal" style={{ display: "flex", justifyContent: "center" }}>
                 <MenuItem key="index"><Link to="/" />首页</MenuItem>
                 <MenuItem key="product"><Link to="/product" />产品功能</MenuItem>
-                <MenuItem key="mechanism"><Link to="/mechanism" />机构版</MenuItem>
                 <MenuItem key="cooperation"><Link to="/cooperation" />渠道合作</MenuItem>
-                <MenuItem key="vip"><Link to="/vip" />会员权益</MenuItem>
                 <MenuItem key="help"><Link to="/help" />帮助中心</MenuItem>
                 <div><Button type="primary" onClick={onClick}>进入课堂</Button></div>
             </Menu>

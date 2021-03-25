@@ -1,7 +1,7 @@
 import { message } from 'antd';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import ClassBox from './components/ClassBox';
+import CourseBox from './components/CourseBox';
 import NavBar from './components/NavBar';
 
 export default function Teacher() {
@@ -23,7 +23,7 @@ export default function Teacher() {
     return (
         <div>
             <NavBar teacherInfo={teacherInfo} />
-            <ClassBox />
+            <CourseBox />
         </div>
     )
 }

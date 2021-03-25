@@ -1,6 +1,7 @@
-import { Avatar, Breadcrumb, Dropdown, Menu } from 'antd'
-import React from 'react'
+import { Avatar, Breadcrumb, Button, Dropdown, Menu, Modal } from 'antd'
+import React, { useState } from 'react'
 import { Link, withRouter } from 'react-router-dom'
+import AddCourseForm from '../AddCourseForm';
 import "./index.css";
 const BreadcrumbItem = Breadcrumb.Item;
 const MenuItem = Menu.Item;
@@ -18,9 +19,13 @@ function NavBar(props) {
         </Menu>
     );
 
+    const [addCourseVisible, setAddCourseVisible] = useState(false);
 
+    const onAddCourseClick = () => {
+        setAddCourseVisible(true);
+    }
     return (
-        <div className="student-navbar">
+        <div className="teacher-navbar">
             <div className="nav-breadcrumb">
                 <Breadcrumb>
                     <BreadcrumbItem>我的课堂</BreadcrumbItem>
@@ -28,20 +33,38 @@ function NavBar(props) {
                 </Breadcrumb>
             </div>
 
-
             {/* Dropdown */}
-            <div className="student-avatar">
+            <div className="teacher-avatar">
+                <Button
+                    onClick={onAddCourseClick}
+                    style={{ marginRight: "80px", marginTop: "8px" }}
+                    type="primary"
+                >
+                    创建课程
+                </Button>
                 <Dropdown
                     placement="bottomCenter"
                     overlay={menu}
                 >
-                    <Link to="/vip">
+                    <Link to="/help">
                         <Avatar
+                            style={{ marginBottom: "2px" }}
+                            size="large"
                             src={props.teacherInfo.avatar}
                         />
                     </Link>
                 </Dropdown>
             </div>
+
+            <Modal
+                visible={addCourseVisible}
+                destroyOnClose={true} 
+                title="创建课程" 
+                footer={[]}
+                onCancel={() => setAddClassVisible(false)}
+                >
+                <AddCourseForm />
+            </Modal>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-.student-navbar {
+.teacher-navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -11,6 +11,6 @@
 .nav-breadcrumb {
     margin-left: 30px;
 }
-.student-avatar {
+.teacher-avatar {
     margin-right: 45px;
 }

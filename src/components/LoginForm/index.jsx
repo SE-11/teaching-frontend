@@ -41,7 +41,7 @@ function LoginForm(props) {
         wrapperCol: { span: 16 },
     };
     return (
-        <div style={{ display: "flex", justifyContent: "center  " }}>
+        <div style={{ display: "flex", justifyContent: "center" }}>
             <Form 
                 {...layout}
                 style={{ width: "300px", marginRight: "50px" }}
