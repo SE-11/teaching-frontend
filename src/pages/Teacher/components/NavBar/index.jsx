@@ -61,7 +61,7 @@ function NavBar(props) {
                 destroyOnClose={true} 
                 title="创建课程" 
                 footer={[]}
-                onCancel={() => setAddClassVisible(false)}
+                onCancel={() => setAddCourseVisible(false)}
                 >
                 <AddCourseForm />
             </Modal>
