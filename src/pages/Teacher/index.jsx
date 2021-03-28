@@ -24,7 +24,7 @@ export default function Teacher() {
         <div>
             <NavBar teacherInfo={teacherInfo} />
             <div className="teacher-page-content" style={{ display: "flex", justifyContent: "center" }}>
-                <CourseBox />            
+                <CourseBox id={teacherId} />            
             </div>
         </div>
     )

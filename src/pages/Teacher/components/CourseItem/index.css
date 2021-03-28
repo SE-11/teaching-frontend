@@ -1,0 +1,13 @@
+.course-cover {
+    padding: 10px 20px;
+}
+
+.course-cover-term {
+    opacity: .7;
+    font-size: 18px;
+}
+
+.course-cover-code {
+    color: white;
+    font-size: 20px;
+}
