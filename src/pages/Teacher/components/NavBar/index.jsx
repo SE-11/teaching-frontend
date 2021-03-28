@@ -1,7 +1,6 @@
-import { Avatar, Breadcrumb, Button, Dropdown, Menu, Modal } from 'antd'
-import React, { useState } from 'react'
+import { Avatar, Breadcrumb,Dropdown, Menu } from 'antd'
+import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
-import AddCourseForm from '../AddCourseForm';
 import "./index.css";
 const BreadcrumbItem = Breadcrumb.Item;
 const MenuItem = Menu.Item;
@@ -9,6 +8,7 @@ const MenuItem = Menu.Item;
 function NavBar(props) {
     // console.log(props)
     
+
     const menu = (
         <Menu style={{ marginTop: "10px" }}>
             <MenuItem key="1">个人中心</MenuItem>
@@ -19,11 +19,6 @@ function NavBar(props) {
         </Menu>
     );
 
-    const [addCourseVisible, setAddCourseVisible] = useState(false);
-
-    const onAddCourseClick = () => {
-        setAddCourseVisible(true);
-    }
     return (
         <div className="teacher-navbar">
             <div className="nav-breadcrumb">
@@ -35,13 +30,6 @@ function NavBar(props) {
 
             {/* Dropdown */}
             <div className="teacher-avatar">
-                <Button
-                    onClick={onAddCourseClick}
-                    style={{ marginRight: "80px", marginTop: "8px" }}
-                    type="primary"
-                >
-                    创建课程
-                </Button>
                 <Dropdown
                     placement="bottomCenter"
                     overlay={menu}
@@ -55,16 +43,6 @@ function NavBar(props) {
                     </Link>
                 </Dropdown>
             </div>
-
-            <Modal
-                visible={addCourseVisible}
-                destroyOnClose={true} 
-                title="创建课程" 
-                footer={[]}
-                onCancel={() => setAddCourseVisible(false)}
-                >
-                <AddCourseForm />
-            </Modal>
         </div>
     )
 }
