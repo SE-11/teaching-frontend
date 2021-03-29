@@ -10,12 +10,17 @@ export default function CourseItem(props) {
     const courseName = props.courseName;
     const courseStartTime = props.startTime;
     const endStartTime = props.endTime;
+    const invitationCode = props.invitationCode;
+    const teacherAvatar = props.teacherAvatar;
+    const university = props.university;
+    const teacherName = props.teacherName;
     const cover = (
         <div className="course-cover" style={{ backgroundImage: `url(${coverImg})`}}>
             <p className="course-cover-term">{courseStartTime} - {endStartTime}</p>
-            <div className="course-cover-code">课堂码🧾: </div>
+            <div className="course-cover-code">课堂码🧾: {invitationCode}</div>
         </div>        
     );
+    
     return (
         <Link to="/">
             <Card
@@ -23,9 +28,9 @@ export default function CourseItem(props) {
                 cover={cover}
                 >
                     <Meta 
-                        avatar={<Link to="/vip"><Avatar src="http://images.nowcoder.com/head/934m.png" /></Link> }
+                        avatar={<Link to="/vip"><Avatar src={teacherAvatar} /></Link> }
                         title={courseName}
-                        description="向老师教你如何科学摸鱼"
+                        description={`${teacherName} - ${university}`}
                     />
             </Card>
         </Link>

@@ -10,9 +10,7 @@ export default function AddCourseForm(props) {
         labelCol: { span: 8 },
         wrapperCol: { span: 16 },
     };
-    const onChange = (checkedValues) => {
-        console.log(checkedValues);
-    }
+   
     const onFinish = (values) => {
         values["teacherId"] = window.localStorage.getItem("teacherId");
         let data = courseJSON(values)
@@ -21,7 +19,6 @@ export default function AddCourseForm(props) {
              .then((rsp) => {
                 // console.log(rsp.data);
                 let courseData = rsp.data;
-                message.success("添加成功!");
                 props.handleAddCourseSuccess(courseData);
              })
              .catch((error) => {
