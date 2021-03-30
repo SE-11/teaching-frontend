@@ -16,14 +16,15 @@ const colSpan = {
 
 export default function CourseBox(props) {
     const teacherId = props.id;
-    const [courseList, setCourseList] = useState([]);
+    const [courseTeachList, setCourseTeachList] = useState([]);
+    const [courseJoinList, setCourseJoinList] = useState([]);
     const [addCourseVisible, setAddCourseVisible] = useState(false);
     const [joinCourseVisible, setJoinCourseVisible] = useState(false);
 
     useEffect(() => {
         axios.get(`http://localhost:8080/teacher/listCourse/${teacherId}`)
              .then((rsp) => {
-                 setCourseList([...rsp.data]);
+                 setCourseTeachList([...rsp.data]);
                 //  console.log(courseList);
                  message.success("fetch course list success!");
                 //  console.log(courseList);
@@ -32,6 +33,18 @@ export default function CourseBox(props) {
                  message.error(error)
              });
     }, []);
+
+    useEffect(() => {
+        // get courses that teahcer joined
+        axios.get(`http://localhost:8080/teacher/listJoinCourse/${teacherId}`)
+             .then((rsp) => {
+                 setCourseJoinList([...rsp.data]);
+                 message.success("fetch join course list success!");
+             })
+             .catch((error) => {
+                 message.error(error);
+             })
+    }, [])
     
 
     const onAddCourseClick = () => {
@@ -54,9 +67,9 @@ export default function CourseBox(props) {
         setAddCourseVisible(false);
         axios.get(`http://localhost:8080/teacher/getCourseInfoById/${courseData.courseId}`)
              .then((rsp) => {
-                 let tmpData = [...courseList];
+                 let tmpData = [...courseTeachList];
                  tmpData.push(rsp.data);
-                 setCourseList(tmpData);
+                 setCourseTeachList(tmpData);
                  message.success("添加成功!");
              })
              .catch((error) => {
@@ -64,7 +77,14 @@ export default function CourseBox(props) {
              });
     }
 
-    const courses = courseList.map((item) => {
+    const handleJoinCourseSuccess = (courseData) => {
+        setJoinCourseVisible(false);
+        let tmpData = [...courseJoinList];
+        tmpData.push(courseData);
+        setCourseJoinList(tmpData);
+    }
+
+    const teachCourses = courseTeachList.map((item) => {
         // console.log(item);
         return (
             <div key={item.courseId} className="course-item">
@@ -80,7 +100,24 @@ export default function CourseBox(props) {
                 />
             </div>
         );
-    })
+    });
+
+    const joinCourses = courseJoinList.map((item) => {
+        return (
+            <div key={item.courseId} className="course-item">
+                <CourseItem
+                    teacherAvatar={item.avatar}
+                    university={item.university}
+                    teacherName={item.teacherName}
+                    invitationCode={item.invitationCode}
+                    startTime={item.courseStartTime}
+                    endTime={item.courseEndTime}
+                    coverImg={item.cover}
+                    courseName={item.courseName}
+                />
+            </div>
+        );
+    });
 
     return (
         <div className="course-box">
@@ -95,13 +132,13 @@ export default function CourseBox(props) {
             </div>
             <Divider style={{ margin: 0 }} />
             <div className="course-box-wrapper">
-                {courses}
+                {teachCourses}
             </div>
             <Divider style={{ margin: 0 }} />
             <div className="teacher-course-label">我加入的课程：</div>
             <Divider style={{ margin: 0 }} />
-            <div>
-                
+            <div className="course-box-wrapper">
+                {joinCourses}
             </div>
             {/* courses i joined */}
             <Modal
@@ -120,7 +157,7 @@ export default function CourseBox(props) {
                 footer={[]}
                 onCancel={() => setJoinCourseVisible(false)}
             >
-                <JoinCourseForm />
+                <JoinCourseForm handleJoinCourseSuccess={handleJoinCourseSuccess} />
             </Modal>
         </div>
     )

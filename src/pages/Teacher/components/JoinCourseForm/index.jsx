@@ -1,4 +1,4 @@
-import { Form, Input, Button } from 'antd'
+import { Form, Input, Button, message } from 'antd'
 import axios from 'axios';
 import React from 'react'
 
@@ -12,7 +12,19 @@ export default function JoinCourseForm(props) {
         // teacher join course
         values["teacherId"] = window.localStorage.getItem("teacherId");
         console.log(values);
-        // axios.post
+        axios.post("http://localhost:8080/teacher/joinCourse", values)
+             .then((rsp) => {
+                 if(rsp.data.errorCode === -1) {
+                     message.error(rsp.data.msg);
+                 } else {
+                     let courseData = rsp.data.data;
+                     props.handleJoinCourseSuccess(courseData);
+                 }
+             })
+             .catch((error) => {
+                 console.log(error);
+                //  message.error(error);
+             })
     }
     return (
         <div style={{ display: "flex", justifyContent: "center"}}>
