@@ -4,3 +4,10 @@
     /* position: relative; */
     background-image: url(https://www.ketangpai.com//img/teaching.3d8b2f2d.jpg);
 }
+.pic1{
+    margin: 0 auto;
+    overflow: hidden;
+    /* position: relative; */
+    background-image: url(https://www.ketangpai.com/img/welcomeBanner2.d651fb82.png);
+    height: "600px";
+}
