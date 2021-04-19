@@ -6,13 +6,12 @@ import Product from '../../pages/Product'
 import Home from '../../pages/Home';
 
 export default function HomeContent() {
-
     return (
         <Switch>
             <Route exact path="/" component={ Home } />
-            <Route exact path="/product" component={ Product } />
-            <Route exact path="/cooperation" component={ Cooperation } />
-            <Route exact path="/Help" component={ Help } />
+            <Route path="/product" component={ Product } />
+            <Route path="/cooperation" component={ Cooperation } />
+            <Route path="/Help" component={ Help } />
         </Switch>
     )
 }

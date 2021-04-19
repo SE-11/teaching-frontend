@@ -6,13 +6,13 @@ import CourseItem from '../CourseItem'
 import JoinCourseForm from '../JoinCourseForm';
 import "./index.css";
 
-const colSpan = {
-    xs: 24,
-    sm: 24,
-    md: 12,
-    lg: 12,
-    xl: 6,
-}
+// const colSpan = {
+//     xs: 24,
+//     sm: 24,
+//     md: 12,
+//     lg: 12,
+//     xl: 6,
+// }
 
 export default function CourseBox(props) {
     const teacherId = props.id;

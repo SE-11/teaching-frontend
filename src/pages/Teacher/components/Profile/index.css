@@ -1,0 +1,33 @@
+.teacher-card {
+    width: 1000px;
+    box-shadow: 0px 2px 3px rgb(199, 199, 199);
+}
+
+.teacher-header-cover {
+    width: 1000px;
+    height: 130px;
+    background: rgb(85, 92, 104);
+}
+
+.teacher-header-main {
+    display: flex;
+}
+
+
+.teacher-header-avatar {
+    margin: 10px;
+}
+
+.teacher-header-content {
+    margin-left: 10px;
+}
+
+.teacher-header-name {
+    font-size: larger;
+    font-family: monospace;
+}
+
+.teacher-header-label {
+    font-family: sans-serif;
+    font-weight: 600;
+}

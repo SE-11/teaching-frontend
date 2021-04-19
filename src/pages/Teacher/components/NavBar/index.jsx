@@ -7,11 +7,10 @@ const MenuItem = Menu.Item;
 
 function NavBar(props) {
     // console.log(props)
-    
-
+    const teacherId = props.teacherInfo.teacherId;
     const menu = (
         <Menu style={{ marginTop: "10px" }}>
-            <MenuItem key="1">个人中心</MenuItem>
+            <MenuItem key="1"><Link to={`/teacher/profile/${teacherId}`}>个人中心</Link></MenuItem>
             <MenuItem key="2">学生管理</MenuItem>
             <MenuItem key="3">课程管理</MenuItem>
             <MenuItem key="4">设置</MenuItem>

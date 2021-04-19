@@ -1,6 +1,7 @@
 import { message } from 'antd';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import Content from './components/Content';
 import CourseBox from './components/CourseBox';
 import NavBar from './components/NavBar';
 
@@ -8,7 +9,7 @@ export default function Teacher() {
     const teacherId = window.localStorage.getItem("teacherId");
     const [teacherInfo, setTeacherInfo] = useState("");
 
-    const url = 'http://localhost:8080/teacher/' + teacherId;
+    const url = `http://localhost:8080/teacher/${teacherId}`;
     useEffect(() => {
         axios.get(url)
              .then((rsp) => {
@@ -17,6 +18,7 @@ export default function Teacher() {
                  //console.log(teacherInfo);
              })
              .catch((err) => {
+                 console.error(err);
                  message.error("用户信息获取失败");
              });
     }, []);
@@ -24,7 +26,8 @@ export default function Teacher() {
         <div>
             <NavBar teacherInfo={teacherInfo} />
             <div className="teacher-page-content" style={{ display: "flex", justifyContent: "center" }}>
-                <CourseBox id={teacherId} />            
+                {/* <CourseBox id={teacherId} />             */}
+                <Content id={teacherId} />
             </div>
         </div>
     )

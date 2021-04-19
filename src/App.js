@@ -9,7 +9,7 @@ function App() {
   const HomePage = () => <div><HomeNavigation/><HomeContent/></div>
   return (
     <Switch>
-      <Route path="/teacher/" exact component={ Teacher } />
+      <Route path="/teacher/" component={ Teacher } />
       <Route path="/student/" exact component={ Student } />
       <Route path="/" component={ HomePage } />
     </Switch>

@@ -1,4 +1,4 @@
-import { Card, Image, Avatar } from 'antd'
+import { Card, Avatar } from 'antd'
 import React from 'react'
 import { Link } from 'react-router-dom';
 import "./index.css";
