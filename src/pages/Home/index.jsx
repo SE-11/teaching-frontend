@@ -125,7 +125,7 @@ export default function Home() {
             <div>
                 <div style={{ textAlign: "center", margin: "40px 0"}}>
                     <div style={{ fontSize: "50px" }}>
-                        <span style={{color:"#4285f4"}}>1</span>
+                        <span style={{color:"#4285f4"}}>50+</span>
                         <span>  所学校的师生正在使用Teaching！</span>
                     </div>
                 </div>

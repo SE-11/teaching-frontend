@@ -1,5 +1,5 @@
 import React from 'react'
-import { Carousel, Image, Row, Col } from 'antd';
+import { Row, Col } from 'antd';
 import Footer from '../../components/Footer';
 import "./index.css";
 import ProductBrick from '../../components/ProductBrick';
@@ -38,7 +38,7 @@ export default function Product() {
                 </div>
                 <ul style={{listStyle:'none',display:'flex',justifyContent:'space-between',flexWrap:'wrap'}}>
                     <li style={{width:'380px',height:'300px',textAlign:'center'}}>
-                        <img src="https://www.ketangpai.com/img/interlight.2db8439b.png" style={{width:'124px',height:'124px'}}></img>
+                        <img src="https://www.ketangpai.com/img/interlight.2db8439b.png" alt="pic-1" style={{width:'124px',height:'124px'}}></img>
                         <div style={{ fontSize:"20px"}}>
                             轻量级
                             <div style={{ fontSize:"15px",margin:'0 auto',width:'250px'}}>
@@ -47,7 +47,7 @@ export default function Product() {
                         </div>
                     </li>
                     <li style={{width:'380px',height:'300px',textAlign:'center'}}>
-                        <img src="https://www.ketangpai.com/img/intersignin.6b814682.png" style={{width:'124px',height:'124px'}}></img>
+                        <img src="https://www.ketangpai.com/img/intersignin.6b814682.png" alt="pic-2" style={{width:'124px',height:'124px'}}></img>
                         <div style={{ fontSize:"20px"}}>
                             考勤签到
                             <div style={{ fontSize:"15px",margin:'0 auto',width:'250px'}}>
@@ -56,7 +56,7 @@ export default function Product() {
                         </div>
                     </li>
                     <li style={{width:'380px',height:'300px',textAlign:'center'}}>
-                        <img src="https://www.ketangpai.com/img/interlesson.9fd0377e.png" style={{width:'124px',height:'124px'}}></img>
+                        <img src="https://www.ketangpai.com/img/interlesson.9fd0377e.png" alt="pic-3" style={{width:'124px',height:'124px'}}></img>
                         <div style={{ fontSize:"20px"}}>
                             互动讲堂
                             <div style={{ fontSize:"15px",margin:'0 auto',width:'250px'}}>
@@ -65,7 +65,7 @@ export default function Product() {
                         </div>
                     </li>
                     <li style={{width:'380px',height:'300px',textAlign:'center'}}>
-                        <img src="https://www.ketangpai.com/img/interword.f62bf283.png" style={{width:'124px',height:'124px'}}></img>
+                        <img src="https://www.ketangpai.com/img/interword.f62bf283.png" alt="pic-4" style={{width:'124px',height:'124px'}}></img>
                         <div style={{ fontSize:"20px"}}>
                             实时测评
                             <div style={{ fontSize:"15px",margin:'0 auto',width:'250px'}}>
@@ -74,7 +74,7 @@ export default function Product() {
                         </div>
                     </li>
                     <li style={{width:'380px',height:'300px',textAlign:'center'}}>
-                        <img src="https://www.ketangpai.com/img/interreword.e9ec40d0.png" style={{width:'124px',height:'124px'}}></img>
+                        <img src="https://www.ketangpai.com/img/interreword.e9ec40d0.png" alt="pic-5" style={{width:'124px',height:'124px'}}></img>
                         <div style={{ fontSize:"20px"}}>
                             词云功能
                             <div style={{ fontSize:"15px",margin:'0 auto',width:'250px'}}>
@@ -83,7 +83,7 @@ export default function Product() {
                         </div>
                     </li>
                     <li style={{width:'380px',height:'300px',textAlign:'center'}}>
-                        <img src="https://www.ketangpai.com/img/interlight.2db8439b.png" style={{width:'124px',height:'124px'}}></img>
+                        <img src="https://www.ketangpai.com/img/interlight.2db8439b.png" alt="pic-6" style={{width:'124px',height:'124px'}}></img>
                         <div style={{ fontSize:"20px"}}>
                             表现奖励
                             <div style={{ fontSize:"15px",margin:'0 auto',width:'250px'}}>
@@ -242,7 +242,7 @@ export default function Product() {
                     </div>
                     <ul style={{listStyle:'none',display:'flex',justifyContent:'space-between',flexWrap:'wrap',position:'relative'}}>
                         <li style={{width:'380px',height:'300px',textAlign:'center',background:'#f3f8ff'}}>
-                            <img src="https://www.ketangpai.com/img/jiegouhua.b5789af4.png" style={{width:'182px',height:'182px'}}></img>
+                            <img src="https://www.ketangpai.com/img/jiegouhua.b5789af4.png" alt="pic-6" style={{width:'182px',height:'182px'}}></img>
                             <div style={{position:'absolute',textAlign:'center',top:'125px',marginLeft:'115px',fontSize:'30px'}}>
                                 结构化管理
                             </div>
@@ -251,7 +251,7 @@ export default function Product() {
                             </div>
                         </li>
                         <li style={{width:'380px',height:'300px',textAlign:'center',background:'#f3f8ff'}}>
-                            <img src="https://www.ketangpai.com/img/duoyuanhua.5cdc5d57.png" style={{width:'182px',height:'182px'}}></img>
+                            <img src="https://www.ketangpai.com/img/duoyuanhua.5cdc5d57.png" alt="pic-7" style={{width:'182px',height:'182px'}}></img>
                             <div style={{position:'absolute',textAlign:'center',top:'125px',marginLeft:'115px',fontSize:'30px'}}>
                                 课程多元化
                             </div>
@@ -260,7 +260,7 @@ export default function Product() {
                             </div>
                         </li>
                         <li style={{width:'380px',height:'300px',textAlign:'center',backgroundc:'#f3f8ff'}}>
-                            <img src="https://www.ketangpai.com/img/hudong.f79abe38.png" style={{width:'182px',height:'182px'}}></img>
+                            <img src="https://www.ketangpai.com/img/hudong.f79abe38.png" alt="pic-8" style={{width:'182px',height:'182px'}}></img>
                             <div style={{position:'absolute',textAlign:'center',top:'125px',marginLeft:'135px',fontSize:'30px'}}>
                                 互动讲堂
                             </div>
