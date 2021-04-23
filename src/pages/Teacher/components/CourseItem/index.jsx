@@ -6,6 +6,8 @@ import "./index.css";
 const { Meta } = Card;
 export default function CourseItem(props) {
     // 可以通过外部包裹 Link 的方式来做点击 全体、局部跳转
+    const teacherId = props.teacherId;
+    const courseId = props.courseId;
     const coverImg = props.coverImg;
     const courseName = props.courseName;
     const courseStartTime = props.startTime;
@@ -14,6 +16,10 @@ export default function CourseItem(props) {
     const teacherAvatar = props.teacherAvatar;
     const university = props.university;
     const teacherName = props.teacherName;
+
+    const jumpToTeacher = `/teacher/profile/${teacherId}`;
+    const jumpToCourse = `/teacher/course/${courseId}`;
+
     const cover = (
         <div className="course-cover" style={{ backgroundImage: `url(${coverImg})`}}>
             <p className="course-cover-term">{courseStartTime} - {endStartTime}</p>
@@ -22,13 +28,13 @@ export default function CourseItem(props) {
     );
     
     return (
-        <Link to="/">
+        <Link to={jumpToCourse}>
             <Card
                 style={{ width: "300px", boxShadow: "0px 2px 3px #dddddd", marginBottom: "10px" }}
                 cover={cover}
                 >
                     <Meta 
-                        avatar={<Link to="/vip"><Avatar src={teacherAvatar} /></Link> }
+                        avatar={<Link to={jumpToTeacher}><Avatar src={teacherAvatar} /></Link> }
                         title={courseName}
                         description={`${teacherName} - ${university}`}
                     />

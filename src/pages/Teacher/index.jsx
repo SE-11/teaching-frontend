@@ -2,7 +2,6 @@ import { message } from 'antd';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import Content from './components/Content';
-// import CourseBox from './components/CourseBox';
 import NavBar from './components/NavBar';
 
 export default function Teacher() {
@@ -26,7 +25,6 @@ export default function Teacher() {
         <div>
             <NavBar teacherInfo={teacherInfo} />
             <div className="teacher-page-content" style={{ display: "flex", justifyContent: "center" }}>
-                {/* <CourseBox id={teacherId} />             */}
                 <Content id={teacherId} />
             </div>
         </div>

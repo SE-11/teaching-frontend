@@ -1,0 +1,13 @@
+.ann-item-wrapper {
+    width: 700px;
+}
+
+.ann-itme-content {
+    font-size: 14px;
+    color: rgb(104, 104, 104);
+}
+
+.ann-item-pubtime {
+    font-size: 12px;
+    color: rgb(104, 104, 104);
+}

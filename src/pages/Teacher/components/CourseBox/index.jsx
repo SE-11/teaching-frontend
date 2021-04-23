@@ -6,14 +6,6 @@ import CourseItem from '../CourseItem'
 import JoinCourseForm from '../JoinCourseForm';
 import "./index.css";
 
-// const colSpan = {
-//     xs: 24,
-//     sm: 24,
-//     md: 12,
-//     lg: 12,
-//     xl: 6,
-// }
-
 export default function CourseBox(props) {
     const teacherId = props.id;
     const [courseTeachList, setCourseTeachList] = useState([]);
@@ -21,11 +13,15 @@ export default function CourseBox(props) {
     const [addCourseVisible, setAddCourseVisible] = useState(false);
     const [joinCourseVisible, setJoinCourseVisible] = useState(false);
 
+    /*
+     * fetch course list 
+     * 
+     */
     useEffect(() => {
         axios.get(`http://localhost:8080/teacher/listCourse/${teacherId}`)
              .then((rsp) => {
                  setCourseTeachList([...rsp.data]);
-                //  console.log(courseList);
+                //  console.log(courseTeachList);
                  message.success("fetch course list success!");
                 //  console.log(courseList);
              })
@@ -34,6 +30,9 @@ export default function CourseBox(props) {
              });
     }, []);
 
+    /*
+     * fetch join course list 
+     */
     useEffect(() => {
         // get courses that teahcer joined
         axios.get(`http://localhost:8080/teacher/listJoinCourse/${teacherId}`)
@@ -46,7 +45,6 @@ export default function CourseBox(props) {
              })
     }, [])
     
-
     const onAddCourseClick = () => {
         setAddCourseVisible(true);
     }
@@ -89,13 +87,15 @@ export default function CourseBox(props) {
         return (
             <div key={item.courseId} className="course-item">
                 <CourseItem
+                    courseId={item.courseId}
+                    teacherId={item.teacherId}
                     teacherAvatar={item.avatar}
                     university={item.university}
                     teacherName={item.teacherName}
                     invitationCode={item.invitationCode}
                     startTime={item.courseStartTime}
                     endTime={item.courseEndTime}
-                    coverImg={item.cover}
+                    coverImg={item.courseCover}
                     courseName={item.courseName}
                 />
             </div>
@@ -106,13 +106,15 @@ export default function CourseBox(props) {
         return (
             <div key={item.courseId} className="course-item">
                 <CourseItem
+                    courseId={item.courseId}
+                    teacherId={item.teacherId}
                     teacherAvatar={item.avatar}
                     university={item.university}
                     teacherName={item.teacherName}
                     invitationCode={item.invitationCode}
                     startTime={item.courseStartTime}
                     endTime={item.courseEndTime}
-                    coverImg={item.cover}
+                    coverImg={item.courseCover}
                     courseName={item.courseName}
                 />
             </div>

@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Thesis() {
+export default function Homework() {
     return (
         <div>
-            Thesis
+            zuoye
         </div>
     )
 }

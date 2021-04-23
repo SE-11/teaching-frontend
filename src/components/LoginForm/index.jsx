@@ -15,6 +15,7 @@ function LoginForm(props) {
         values.password = md5(values.password).toString();
         axios.post('http://localhost:8080/login', values)
              .then((rsp) => {
+                 console.log(rsp);
                  if(rsp.data.errorCode === 1) {
                      // 根据类型 跳转老师页面还是学生页面
                      let path;
@@ -29,10 +30,12 @@ function LoginForm(props) {
                         props.history.replace(path);
                         message.success("登录成功!");
                      }
+                 } else {
+                    message.error(rsp.data.msg);
                  }
              })
              .catch((err) => {
-                 message.error(err);
+                //  message.error(err);
                  console.log(err);
              });
     }

@@ -7,7 +7,7 @@ function Profile(props) {
     // /teacher/profile/{id}
     // 拿到教师的个人信息
     const teacherId = props.match.params.id;
-    const [teacherInfo, setTeacherInfo] = useState("")
+    const [teacherInfo, setTeacherInfo] = useState("");
     useEffect(() => {
         axios.get(`http://localhost:8080/teacher/${teacherId}`)
              .then((rsp) => {
@@ -22,12 +22,16 @@ function Profile(props) {
 
     return (
         <>
-            <div className="teacher-card">
+            <div className="teacher-card">  
                 <div className="ProfileHeader-userCover">
-                    <Image 
-                        src={teacherInfo.cover}
-                        alt="用户封面"
-                    />
+                    { 
+                      teacherInfo.cover === null ? 
+                      <div className="UserCover-colorBlock"></div> : 
+                      <Image 
+                            src={teacherInfo.cover}
+                            alt="用户封面"
+                      />
+                    }
                 </div>
                 <div className="ProfileHeader-wrapper">
                     <div className="ProfileHeader-main">
