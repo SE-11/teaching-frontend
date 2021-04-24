@@ -1,7 +1,6 @@
 .announce-bar {
     display: flex;
     justify-content: flex-end;
-    /* float: right; */
 }
 
 .ann-item {

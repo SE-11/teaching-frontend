@@ -7,7 +7,8 @@ import 'braft-editor/dist/index.css'
 import axios from 'axios';
 
 export default function Announcement(props) {
-    const {courseId} = props;
+    const {courseId} = props.courseInfo;
+    const {teacherId} = props.courseInfo;
     const [announceList, setAnnounceList] = useState([]);
     const [addAnnVisible, setAddAnnVisible] = useState(false);
     const [editorState, setEditorState] = useState(BraftEditor.createEditorState(''));
@@ -63,9 +64,12 @@ export default function Announcement(props) {
 
     return (
         <div className="announce-wrapper">
-            <div className="announce-bar">
-                <Button type="primary" onClick={handleAddAnnounce}>发布新公告</Button>
-            </div>
+            {teacherId.toString() === window.localStorage.getItem('teacherId') ?
+                <div className="announce-bar">
+                    <Button type="primary" onClick={handleAddAnnounce}>发布新公告</Button>
+                </div> :
+                <></>
+            }
             <Divider style={{ marginTop: "5px", marginBottom: "5px" }} />
             <div className="announces">
                 {announces}

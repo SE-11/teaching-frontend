@@ -18,7 +18,7 @@ export default function CourseItem(props) {
     const teacherName = props.teacherName;
 
     const jumpToTeacher = `/teacher/profile/${teacherId}`;
-    const jumpToCourse = `/teacher/course/${courseId}`;
+    const jumpToCourse = `/teacher/course/${courseId}/courseware`;
 
     const cover = (
         <div className="course-cover" style={{ backgroundImage: `url(${coverImg})`}}>

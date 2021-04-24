@@ -53,7 +53,7 @@ export default function CourseDetail(props) {
             </div>
             <Divider style={{ marginTop: "0px", marginBottom: "0px" }} />
             <div className="course-nav">
-                <Menu mode="horizontal" style={{ display: "flex", justifyContent: "space-around" }}>
+                <Menu mode="horizontal" defaultSelectedKeys={['courseware']} style={{ display: "flex", justifyContent: "space-around" }}>
                     <MenuItem key="courseware" style={{ width: "100px", textAlign: "center" }}>
                         <Link to={`/teacher/course/${courseInfo.courseId}/courseware`} />课件
                     </MenuItem>
@@ -70,9 +70,10 @@ export default function CourseDetail(props) {
             </div>
             <div className="course-content">
                 <Switch>
-                    <Route path={`/teacher/course/${courseInfo.courseId}/courseware`} render={() => <Courseware courseId={courseInfo.courseId} /> } />
-                    <Route path={`/teacher/course/${courseInfo.courseId}/homework`} render={() => <Homework courseId={courseInfo.courseId} /> } />
-                    <Route path={`/teacher/course/${courseInfo.courseId}/announcement`} render={() => <Announcement courseId={courseInfo.courseId} /> }  />
+                    {/* <Route path={`/teacher/course/${courseInfo.courseId}/`} render={() => <Courseware courseInfo={courseInfo} />} /> */}
+                    <Route path={`/teacher/course/${courseInfo.courseId}/courseware`} render={() => <Courseware courseInfo={courseInfo} />} />
+                    <Route path={`/teacher/course/${courseInfo.courseId}/homework`} render={() => <Homework courseId={courseInfo.courseId} />} />
+                    <Route path={`/teacher/course/${courseInfo.courseId}/announcement`} render={() => <Announcement courseInfo={courseInfo} />}  />
                     <Route />
                 </Switch>
             </div>
