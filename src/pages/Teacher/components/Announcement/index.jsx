@@ -5,6 +5,7 @@ import AnnounceItem from '../AnnounceItem';
 import BraftEditor  from "braft-editor";
 import 'braft-editor/dist/index.css'
 import axios from 'axios';
+import { FileAddOutlined } from '@ant-design/icons';
 
 export default function Announcement(props) {
     const {courseId} = props.courseInfo;
@@ -66,7 +67,7 @@ export default function Announcement(props) {
         <div className="announce-wrapper">
             {teacherId.toString() === window.localStorage.getItem('teacherId') ?
                 <div className="announce-bar">
-                    <Button type="primary" onClick={handleAddAnnounce}>发布新公告</Button>
+                    <Button icon={<FileAddOutlined />} type="primary" onClick={handleAddAnnounce}>发布新公告</Button>
                 </div> :
                 <></>
             }

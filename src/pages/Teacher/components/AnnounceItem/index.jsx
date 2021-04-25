@@ -5,7 +5,7 @@ import './index.css';
 
 export default function AnnounceItem(props) {
     const {content} = props;
-    const {pubTime} = props;
+    const pubTime = `${props.pubTime.slice(0, 10)} ${props.pubTime.slice(11, 15)}`;
 
     return (
         <div className="ann-item-wrapper">
