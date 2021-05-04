@@ -12,7 +12,7 @@ export default function RegisteredForm(props) {
     };
     // 暂时把学号存 localstorage 里
     const onFinish = (values) => {
-        // console.log(values);
+        // console.log(values);  
         values.password = md5(values.password).toString();
         let postData = registDataSOrT(values);
         if(postData.type === "student") {
@@ -21,8 +21,8 @@ export default function RegisteredForm(props) {
             axios.post('http://localhost:8080/regist/student', postData.data)
                       .then((rsp) => {
                           if(rsp.data.errorCode === 1) {
-                              window.localStorage.setItem("userType", "student");
-                              window.localStorage.setItem("userId", rsp.data.studentId);
+                            //   window.localStorage.setItem("userType", "student");
+                            //   window.localStorage.setItem("userId", rsp.data.studentId);
                               message.success('注册成功!请登录!');
                           } else {
                               message.error('注册失败!');
@@ -37,8 +37,8 @@ export default function RegisteredForm(props) {
             axios.post('http://localhost:8080/regist/teacher', postData.data)
                  .then((rsp) => {
                      if(rsp.data.errorCode === 1) {
-                         window.localStorage.setItem("userType", "student");
-                         window.localStorage.setItem("userId", rsp.data.teacherId);
+                        //  window.localStorage.setItem("userType", "student");
+                        //  window.localStorage.setItem("userId", rsp.data.teacherId);
                          message.success('注册成功!请登录!');
                      }
                  })

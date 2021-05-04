@@ -63,9 +63,6 @@ export default function CourseDetail(props) {
                     <MenuItem key="discuss" style={{ width: "100px", textAlign: "center" }}>
                         <Link to={`/teacher/course/${courseInfo.courseId}/announcement`} />公告
                     </MenuItem>
-                    <MenuItem key="about" style={{ width: "100px", textAlign: "center" }}>
-                        <Link to="/help" />关于
-                    </MenuItem>
                 </Menu>
             </div>
             <div className="course-content">
@@ -74,7 +71,6 @@ export default function CourseDetail(props) {
                     <Route path={`/teacher/course/${courseInfo.courseId}/courseware`} render={() => <Courseware courseInfo={courseInfo} />} />
                     <Route path={`/teacher/course/${courseInfo.courseId}/homework`} render={() => <Homework courseId={courseInfo.courseId} />} />
                     <Route path={`/teacher/course/${courseInfo.courseId}/announcement`} render={() => <Announcement courseInfo={courseInfo} />}  />
-                    <Route />
                 </Switch>
             </div>
         </div>

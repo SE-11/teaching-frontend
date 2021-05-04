@@ -21,12 +21,10 @@ export default function CourseBox(props) {
         axios.get(`http://localhost:8080/teacher/listCourse/${teacherId}`)
              .then((rsp) => {
                  setCourseTeachList([...rsp.data]);
-                //  console.log(courseTeachList);
                  message.success("fetch course list success!");
-                //  console.log(courseList);
              })
              .catch((error) => {
-                 message.error(error)
+                 console.log(error);
              });
     }, []);
 
@@ -41,7 +39,7 @@ export default function CourseBox(props) {
                  message.success("fetch join course list success!");
              })
              .catch((error) => {
-                 message.error(error);
+                 console.log(error);
              })
     }, [])
     
@@ -134,13 +132,13 @@ export default function CourseBox(props) {
             </div>
             <Divider style={{ margin: 0 }} />
             <div className="course-box-wrapper">
-                {teachCourses}
+                { courseTeachList.length === 0 ? <div className="null-courses">您还未教授任何课程</div> : teachCourses }
             </div>
             <Divider style={{ margin: 0 }} />
             <div className="teacher-course-label">我加入的课程：</div>
             <Divider style={{ margin: 0 }} />
             <div className="course-box-wrapper">
-                {joinCourses}
+                { courseJoinList.length === 0 ? <div className="null-courses">您还未加入任何课程</div> : joinCourses }
             </div>
             {/* courses i joined */}
             <Modal

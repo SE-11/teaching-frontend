@@ -21,21 +21,23 @@ function LoginForm(props) {
                      let path;
                      if(rsp.data.userType === "student") {
                         window.localStorage.setItem('studentId', rsp.data.id);
+                        window.localStorage.setItem('userType', 'student');
                         path = '/student';
                         props.history.replace(path);
                         message.success("登录成功!");
                      } else {
                         window.localStorage.setItem('teacherId', rsp.data.id);
+                        window.localStorage.setItem('userType', 'teacher');
                         path = '/teacher';
                         props.history.replace(path);
                         message.success("登录成功!");
                      }
+                     window.localStorage.setItem('loginState', 1);
                  } else {
                     message.error(rsp.data.msg);
                  }
              })
              .catch((err) => {
-                //  message.error(err);
                  console.log(err);
              });
     }
