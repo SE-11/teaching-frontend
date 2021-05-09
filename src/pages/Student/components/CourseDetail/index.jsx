@@ -3,9 +3,9 @@ import React, {useEffect, useState} from 'react';
 import { Divider, Menu} from 'antd';
 import './index.css';
 import { Link, Route, Switch } from 'react-router-dom';
-import Announcement from '../Announcement';
-import Courseware from '../Courseware';
-import Homework from '../Homework';
+import Announcement from '../../../Teacher/components/Announcement';
+import Courseware from '../../../Teacher/components/Courseware';
+import Homework from '../../../Teacher/components/Homework';
 
 
 const MenuItem = Menu.Item;
@@ -55,22 +55,22 @@ export default function CourseDetail(props) {
             <div className="course-nav">
                 <Menu mode="horizontal" defaultSelectedKeys={['courseware']} style={{ display: "flex", justifyContent: "space-around" }}>
                     <MenuItem key="courseware" style={{ width: "100px", textAlign: "center" }}>
-                        <Link to={`/teacher/course/${courseInfo.courseId}/courseware`} />课件
+                        <Link to={`/student/course/${courseInfo.courseId}/courseware`} />课件
                     </MenuItem>
                     <MenuItem key="homework" style={{ width: "100px", textAlign: "center" }}>
-                        <Link to={`/teacher/course/${courseInfo.courseId}/homework`} />作业
+                        <Link to={`/student/course/${courseInfo.courseId}/homework`} />作业
                     </MenuItem>
                     <MenuItem key="discuss" style={{ width: "100px", textAlign: "center" }}>
-                        <Link to={`/teacher/course/${courseInfo.courseId}/announcement`} />公告
+                        <Link to={`/student/course/${courseInfo.courseId}/announcement`} />公告
                     </MenuItem>
                 </Menu>
             </div>
             <div className="course-content">
                 <Switch>
                     {/* <Route path={`/teacher/course/${courseInfo.courseId}/`} render={() => <Courseware courseInfo={courseInfo} />} /> */}
-                    <Route path={`/teacher/course/${courseInfo.courseId}/courseware`} render={() => <Courseware courseInfo={courseInfo} />} />
-                    <Route path={`/teacher/course/${courseInfo.courseId}/homework`} render={() => <Homework courseInfo={courseInfo} />} />
-                    <Route path={`/teacher/course/${courseInfo.courseId}/announcement`} render={() => <Announcement courseInfo={courseInfo} />}  />
+                    <Route path={`/student/course/${courseInfo.courseId}/courseware`} render={() => <Courseware courseInfo={courseInfo} />} />
+                    <Route path={`/student/course/${courseInfo.courseId}/homework`} render={() => <Homework courseId={courseInfo.courseId} />} />
+                    <Route path={`/student/course/${courseInfo.courseId}/announcement`} render={() => <Announcement courseInfo={courseInfo} />}  />
                 </Switch>
             </div>
         </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import HomeNavigation from "./components/HomeNavigation";
 import HomeContent from "./components/HomeContent";
-import { Redirect, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Student from "./pages/Student";
 import Teacher from "./pages/Teacher";
 
@@ -13,11 +13,8 @@ function App() {
   return (
     <Switch>
       <Route path="/teacher/" component={ Teacher } />
-      <Route path="/student/" exact component={ Student } />
-      <Route path="/" render={() => (
-        // loginState === '1' ? <Redirect to={redirectUrl}/>  : <HomePage />
-        <HomePage />
-        )}  />
+      <Route path="/student/" component={ Student } />
+      <Route path="/" render={() => (<HomePage />)}  />
     </Switch>
   );
 }

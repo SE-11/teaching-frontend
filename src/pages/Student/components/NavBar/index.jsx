@@ -1,35 +1,47 @@
-import { Avatar, Breadcrumb, Dropdown, Menu } from 'antd'
+import { Avatar, Dropdown, Menu, message } from 'antd'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import "./index.css";
-const BreadcrumbItem = Breadcrumb.Item;
+
 const MenuItem = Menu.Item;
 
-export default function NavBar() {
+function NavBar(props) {
+    const studentId = props.studentInfo.studentId;
+    const pathLevel = props.location.pathname.split('/').filter(i => i).length;
+    const handleSignOut = () => {
+        window.localStorage.setItem('loginState', 0);
+        props.history.replace('/');
+        message.success('您已退出!');
+    }
+
     const menu = (
-        <Menu style={{ marginTop: "10px" }}>
-            <MenuItem key="1">个人中心</MenuItem>
-            <MenuItem key="2">设置</MenuItem>
-            <MenuItem key="3">退出</MenuItem>
+        <Menu style={{ marginTop: "10px", textAlign: "center" }}>
+            <MenuItem key="1"><Link to={`/student/profile/${studentId}`}>个人中心</Link></MenuItem>
+            <MenuItem key="2">学生管理</MenuItem>
+            <MenuItem key="3">课程管理</MenuItem>
+            <MenuItem key="4" onClick={handleSignOut}>退出</MenuItem>
         </Menu>
     );
     return (
         <div className="student-navbar">
-            <div className="nav-breadcrumb">
-                <Breadcrumb>
-                    <BreadcrumbItem>我的课堂</BreadcrumbItem>
-                    <BreadcrumbItem>课程详情</BreadcrumbItem>
-                </Breadcrumb>
-            </div>
+            { pathLevel === 1 ? 
+                <div className="nav-tip">Logo</div>
+             : 
+                <div className="nav-tip">
+                    <Link to="/student">回到首页</Link>
+                </div>
+            }
             
             <div className="student-avatar">
                 <Dropdown
                     placement="bottomCenter"
                     overlay={menu}
                 >
-                    <Link to="/vip">
+                    <Link to={`/student/profile/${studentId}`}>
                         <Avatar
-                            src="http://images.nowcoder.com/head/7m.png"
+                            style={{ marginBottom: "2px" }}
+                            size="large"
+                            src={props.studentInfo.avatar}
                         />
                     </Link>
                 </Dropdown>
@@ -37,3 +49,4 @@ export default function NavBar() {
         </div>
     )
 }
+export default withRouter(NavBar);

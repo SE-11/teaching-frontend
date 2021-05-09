@@ -1,8 +1,7 @@
-import { Avatar, Breadcrumb,Dropdown, Menu, message } from 'antd'
-import React, { useEffect } from 'react'
+import { Avatar,Dropdown, Menu, message } from 'antd'
+import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import "./index.css";
-const BreadcrumbItem = Breadcrumb.Item;
 const MenuItem = Menu.Item;
 
 function NavBar(props) {

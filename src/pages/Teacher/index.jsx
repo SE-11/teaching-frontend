@@ -24,7 +24,7 @@ export default function Teacher() {
     return (
         <div>
             <NavBar teacherInfo={teacherInfo} />
-            <div className="teacher-page-content" style={{ display: "flex", justifyContent: "center" }}>
+            <div style={{ display: "flex", justifyContent: "center" }}>
                 <Content id={teacherId} />
             </div>
         </div>

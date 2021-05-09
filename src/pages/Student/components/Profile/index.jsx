@@ -5,16 +5,16 @@ import { withRouter } from 'react-router';
 import "./index.css";
 function Profile(props) {
     // /teacher/profile/{id}
-    // 拿到教师的个人信息
-    const teacherId = props.match.params.id;
-    const localTeId = window.localStorage.getItem("teacherId");
-    const [teacherInfo, setTeacherInfo] = useState("");
+    const studentId = props.match.params.id;
+    const localStuId = window.localStorage.getItem("studentId");
+    const [studentInfo, setStudentInfo] = useState("");
     useEffect(() => {
-        axios.get(`http://localhost:8080/teacher/${teacherId}`)
+        axios.get(`http://localhost:8080/student/${studentId}`)
              .then((rsp) => {
-                //  console.log(rsp.data)
-                 setTeacherInfo(rsp.data);
-                 message.success("teacher info fetch success!");
+                 console.log(rsp.data)
+                 setStudentInfo(rsp.data);
+                 message.success("student info fetch success!");
+                 console.log(studentInfo);
              })
              .catch((error) => {
                  console.log(error);
@@ -23,13 +23,13 @@ function Profile(props) {
 
     return (
         <>
-            <div className="teacher-card">  
+            <div className="student-card">  
                 <div className="ProfileHeader-userCover">
                     { 
-                      teacherInfo.cover === null ? 
+                      studentInfo.cover === null ? 
                       <div className="UserCover-colorBlock"></div> : 
                       <Image 
-                            src={teacherInfo.cover}
+                            src={studentInfo.cover}
                             alt="用户封面"
                       />
                     }
@@ -38,7 +38,7 @@ function Profile(props) {
                     <div className="ProfileHeader-main">
                         <div className="UserAvatar">
                             <Image
-                                src={teacherInfo.avatar}
+                                src={studentInfo.avatar}
                                 alt="用户头像"
                                 width="160px"
                             />
@@ -46,24 +46,24 @@ function Profile(props) {
                         <div className="ProfileHeader-content">
                             <div className="ProfileHeader-contentHead">
                                 <h1 className="ProfileHeader-title">
-                                    <span className="ProfileHeader-name">{teacherInfo.teacherName}</span>
-                                    <span className="ProfileHeader-headline">{teacherInfo.description}</span>
+                                    <span className="ProfileHeader-name">{studentInfo.studentName}</span>
+                                    <span className="ProfileHeader-headline">{studentInfo.description}</span>
                                 </h1>
-                                { localTeId === teacherId ? <Button type="primary" ghost>编辑个人资料</Button> : <></> }
+                                { localStuId === studentId ? <Button type="primary" ghost>编辑个人资料</Button> : <></> }
                             </div>
                             <div className="ProfileHeader-contentBody">
                                 <div className="ProfileHeader-info">
                                     <div className="ProfileHeader-infoItem">
                                         <span className="ProfileHeader-detailLabel">毕业院校: </span>
-                                        <span className="ProfileHeader-detailValue">{teacherInfo.university}</span>
+                                        <span className="ProfileHeader-detailValue">{studentInfo.university}</span>
                                     </div>
                                     <div className="ProfileHeader-infoItem">
                                         <span className="ProfileHeader-detailLabel">居住地: </span>
-                                        <span className="ProfileHeader-detailValue">{teacherInfo.address}</span>
+                                        <span className="ProfileHeader-detailValue">{studentInfo.address}</span>
                                     </div>
                                     <div className="ProfileHeader-infoItem">
                                         <span className="ProfileHeader-detailLabel">Email: </span>
-                                        <span className="ProfileHeader-detailValue">{teacherInfo.email}</span>
+                                        <span className="ProfileHeader-detailValue">{studentInfo.email}</span>
                                     </div>
                                 </div>
                             </div>

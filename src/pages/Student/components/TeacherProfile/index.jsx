@@ -1,26 +1,22 @@
-import { Button, Image, message } from 'antd';
+import { Image, message } from 'antd';
 import axios from 'axios';
-import React, {useEffect, useState} from 'react'
-import { withRouter } from 'react-router';
-import "./index.css";
-function Profile(props) {
-    // /teacher/profile/{id}
-    // 拿到教师的个人信息
+import React, { useEffect, useState } from 'react'
+import { withRouter } from 'react-router'
+import '../Profile/index.css'
+
+function TeacherProfile(props) {
     const teacherId = props.match.params.id;
-    const localTeId = window.localStorage.getItem("teacherId");
     const [teacherInfo, setTeacherInfo] = useState("");
     useEffect(() => {
         axios.get(`http://localhost:8080/teacher/${teacherId}`)
              .then((rsp) => {
-                //  console.log(rsp.data)
-                 setTeacherInfo(rsp.data);
-                 message.success("teacher info fetch success!");
+                setTeacherInfo(rsp.data);
+                message.success("teacher info fetch success!");
              })
              .catch((error) => {
-                 console.log(error);
-             });
+                console.log(error);
+            });
     }, [])
-
     return (
         <>
             <div className="teacher-card">  
@@ -49,7 +45,6 @@ function Profile(props) {
                                     <span className="ProfileHeader-name">{teacherInfo.teacherName}</span>
                                     <span className="ProfileHeader-headline">{teacherInfo.description}</span>
                                 </h1>
-                                { localTeId === teacherId ? <Button type="primary" ghost>编辑个人资料</Button> : <></> }
                             </div>
                             <div className="ProfileHeader-contentBody">
                                 <div className="ProfileHeader-info">
@@ -74,4 +69,5 @@ function Profile(props) {
         </>
     )
 }
-export default withRouter(Profile);
+
+export default withRouter(TeacherProfile);

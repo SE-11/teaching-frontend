@@ -1,0 +1,43 @@
+.course-box {
+    width: 1300px;
+    margin: 10px 0px;
+    box-shadow: 0px 2px 3px #e9e8e8;
+    border-radius: 3px;
+}
+
+.course-operate-bar-student {
+    height: 45px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0px 10px;
+}
+
+.student-course-label {
+    font-family: monospace;
+    margin-left: 20px;
+    font-weight: 600;
+}
+
+.course-box-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+}
+.course-item {
+    margin: 10px;
+}
+
+
+.null-courses {
+    font-size: 20px;
+    font-family: monospace;
+    font-weight: 600;
+    color: #7e7e7e;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
