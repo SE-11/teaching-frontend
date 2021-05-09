@@ -48,6 +48,9 @@ export default function Homework(props) {
              .then((rsp) => {
                  console.log(rsp.data);
                  setUploadHomeworkVisible(false);
+                 let tmpData = [...homeworkList];
+                 tmpData.push(rsp.data.homeworkInfo);
+                 setHomeworkList(tmpData);
                  message.success('发布作业成功!')
              })
              .catch((error) => {

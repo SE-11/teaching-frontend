@@ -7,7 +7,6 @@ import Announcement from '../../../Teacher/components/Announcement';
 import Courseware from '../../../Teacher/components/Courseware';
 import Homework from '../../../Teacher/components/Homework';
 
-
 const MenuItem = Menu.Item;
 export default function CourseDetail(props) {
     // 拿到课程 id
@@ -69,7 +68,7 @@ export default function CourseDetail(props) {
                 <Switch>
                     {/* <Route path={`/teacher/course/${courseInfo.courseId}/`} render={() => <Courseware courseInfo={courseInfo} />} /> */}
                     <Route path={`/student/course/${courseInfo.courseId}/courseware`} render={() => <Courseware courseInfo={courseInfo} />} />
-                    <Route path={`/student/course/${courseInfo.courseId}/homework`} render={() => <Homework courseId={courseInfo.courseId} />} />
+                    <Route path={`/student/course/${courseInfo.courseId}/homework`} render={() => <Homework courseInfo={courseInfo} />} />
                     <Route path={`/student/course/${courseInfo.courseId}/announcement`} render={() => <Announcement courseInfo={courseInfo} />}  />
                 </Switch>
             </div>

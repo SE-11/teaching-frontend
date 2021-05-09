@@ -42,9 +42,9 @@ export default function Courseware(props) {
                 console.log(info.file.response.fileInfo);
                 let tmpData = [...coursewareList];
                 tmpData.push(info.file.response.fileInfo);
+                setCoursewareList(tmpData);
                 setAddCoursewareVisible(false);
                 message.success('课件上传成功!');
-
             } else if (info.file.status === 'error') {
                 console.log(`${info.file.name} file upload failed.`);
             }
