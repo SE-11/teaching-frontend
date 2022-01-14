@@ -21,8 +21,6 @@ export default function RegisteredForm(props) {
             axios.post('http://localhost:8080/regist/student', postData.data)
                       .then((rsp) => {
                           if(rsp.data.errorCode === 1) {
-                            //   window.localStorage.setItem("userType", "student");
-                            //   window.localStorage.setItem("userId", rsp.data.studentId);
                               message.success('注册成功!请登录!');
                           } else {
                               message.error('注册失败!');
@@ -37,8 +35,6 @@ export default function RegisteredForm(props) {
             axios.post('http://localhost:8080/regist/teacher', postData.data)
                  .then((rsp) => {
                      if(rsp.data.errorCode === 1) {
-                        //  window.localStorage.setItem("userType", "student");
-                        //  window.localStorage.setItem("userId", rsp.data.teacherId);
                          message.success('注册成功!请登录!');
                      }
                  })

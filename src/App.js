@@ -6,9 +6,6 @@ import Student from "./pages/Student";
 import Teacher from "./pages/Teacher";
 
 function App() {
-  // const userType = window.localStorage.getItem('userType');
-  // const redirectUrl = `/${userType}`;
-  // const loginState = window.localStorage.getItem('loginState');
   const HomePage = () => <div><HomeNavigation/><HomeContent/></div>
   return (
     <Switch>
