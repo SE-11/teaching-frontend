@@ -26,7 +26,7 @@ export default function CourseBox(props) {
              .catch((error) => {
                  console.log(error);
              });
-    }, []);
+    }, [teacherId]);
 
     /*
      * fetch join course list 
@@ -41,7 +41,7 @@ export default function CourseBox(props) {
              .catch((error) => {
                  console.log(error);
              })
-    }, [])
+    }, [teacherId])
     
     const onAddCourseClick = () => {
         setAddCourseVisible(true);

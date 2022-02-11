@@ -23,7 +23,7 @@ export default function Homework(props) {
             .catch((err) => {
                 console.log(err);
             });
-    }, []);
+    }, [courseId]);
 
     const uploadProps = {
         beforeUpload: file => {
@@ -110,9 +110,7 @@ export default function Homework(props) {
                             <p className="ant-upload-text">点击此处或将文件拖拽至此以上传</p>
                         </Upload.Dragger>
                     </Form.Item>
-                    <Form.Item wrapperCol={{ span: 16, offset: 8 }}>
-                        <Button style={{ width: "100%" }} htmlType="submit" type="primary">Add</Button>
-                    </Form.Item>
+                    <Button style={{ width: "100%" }} htmlType="submit" type="primary">Add</Button>
                 </Form>
             </Modal>
         </div>

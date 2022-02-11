@@ -12,15 +12,13 @@ export default function Teacher() {
     useEffect(() => {
         axios.get(url)
              .then((rsp) => {
-                 //console.log(rsp.data);
                  setTeacherInfo(rsp.data);
-                 //console.log(teacherInfo);
              })
              .catch((err) => {
                  console.error(err);
                  message.error("用户信息获取失败");
              });
-    }, []);
+    }, [url]);
     return (
         <div>
             <NavBar teacherInfo={teacherInfo} />

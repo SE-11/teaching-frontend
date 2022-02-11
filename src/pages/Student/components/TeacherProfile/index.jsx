@@ -16,7 +16,7 @@ function TeacherProfile(props) {
              .catch((error) => {
                 console.log(error);
             });
-    }, [])
+    }, [teacherId]);
     return (
         <>
             <div className="teacher-card">  

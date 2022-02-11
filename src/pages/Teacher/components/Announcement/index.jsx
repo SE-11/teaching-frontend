@@ -18,13 +18,12 @@ export default function Announcement(props) {
     useEffect(() => {
         axios.get(`http://localhost:8080/course/${courseId}/listAnn`)
              .then((rsp) => {
-                 console.log(rsp.data);
                  setAnnounceList([...rsp.data]);
              })
              .catch((err) => {
                  console.log(err);
              });
-    }, [])
+    }, [courseId])
 
     const announces = announceList.map((it) => {
         return (
@@ -91,9 +90,7 @@ export default function Announcement(props) {
                             onChange={handleEditorChange}
                         />
                     </Form.Item>
-                    <Form.Item>
-                        <Button width="100%" type="primary" htmlType="submit">Submit</Button>
-                    </Form.Item>
+                    <Button style={{ width: "100%" }} type="primary" htmlType="submit">Submit</Button>                    
                 </Form>
             </Modal>
         </div>

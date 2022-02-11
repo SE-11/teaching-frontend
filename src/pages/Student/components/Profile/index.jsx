@@ -14,12 +14,11 @@ function Profile(props) {
                  console.log(rsp.data)
                  setStudentInfo(rsp.data);
                  message.success("student info fetch success!");
-                 console.log(studentInfo);
              })
              .catch((error) => {
                  console.log(error);
              });
-    }, [])
+    }, [studentId])
 
     return (
         <>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Menu, Image, Modal } from 'antd';
-import { Link, withRouter, Redirect } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import logo from "./../../logo.svg";
 import LoginCard from '../LoginCard';
 const MenuItem = Menu.Item;
@@ -16,7 +16,6 @@ function HomeNavigation(props) {
         setLoginModalVisible(true);
     }
 
-
     return (
         <div style={{ display: "flex", justifyContent: "space-around"  }}>
             <Link to="/" style={{ marginRight: "200px" }}>
@@ -31,7 +30,6 @@ function HomeNavigation(props) {
             <Menu theme="light" mode="horizontal" style={{ display: "flex", justifyContent: "center" }}>
                 <MenuItem key="index"><Link to="/" />首页</MenuItem>
                 <MenuItem key="product"><Link to="/product" />产品功能</MenuItem>
-                <MenuItem key="help"><Link to="/help" />关于</MenuItem>
                 <div style={{ marginLeft: "50px" }}>
                     { loginState === '1' ?  
                         <Button type="primary" onClick={handleOnCourse}>进入课堂</Button> : 

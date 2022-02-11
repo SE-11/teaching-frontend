@@ -20,7 +20,7 @@ export default function Courseware(props) {
              .catch((err) => {
                  console.log(err);
              });
-    }, [])
+    }, [courseId])
 
     const handleAddCourseware = () => {
         setAddCoursewareVisible(true);

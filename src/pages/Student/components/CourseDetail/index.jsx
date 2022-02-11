@@ -23,7 +23,7 @@ export default function CourseDetail(props) {
              .catch((err) => {
                  console.log(err);
              });
-    }, []);
+    }, [courseId]);
 
     return (
         <div>

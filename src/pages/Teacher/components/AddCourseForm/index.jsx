@@ -14,10 +14,8 @@ export default function AddCourseForm(props) {
     const onFinish = (values) => {
         values["teacherId"] = window.localStorage.getItem("teacherId");
         let data = courseJSON(values)
-        // console.log(data);
         axios.post('http://localhost:8080/teacher/saveCourse', data)
              .then((rsp) => {
-                // console.log(rsp.data);
                 let courseData = rsp.data;
                 props.handleAddCourseSuccess(courseData);
              })
@@ -54,7 +52,6 @@ export default function AddCourseForm(props) {
                 <FormItem wrapperCol={{ span: 16, offset: 8 }}>
                     <Button style={{ width: "100%" }} htmlType="submit" type="primary">Add</Button>
                 </FormItem>
-
             </Form>
         </div>
     )

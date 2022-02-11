@@ -19,7 +19,7 @@ function Profile(props) {
              .catch((error) => {
                  console.log(error);
              });
-    }, [])
+    }, [teacherId]);
 
     return (
         <>

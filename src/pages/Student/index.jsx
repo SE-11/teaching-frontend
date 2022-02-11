@@ -16,7 +16,7 @@ export default function Student(props) {
              .catch((err) => {
                  console.error(err);
              });
-    }, []);
+    }, [url]);
     return (
         <div>
             <NavBar studentInfo={studentInfo} />

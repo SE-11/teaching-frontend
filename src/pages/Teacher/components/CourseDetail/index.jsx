@@ -14,17 +14,14 @@ export default function CourseDetail(props) {
     const courseId = props.match.params.id;
     const [courseInfo, setCourseInfo] = useState([]);
     useEffect(() => {
-        // console.log(props);
-        // console.log(props.match.params.id)
         axios.get(`http://localhost:8080/course/${courseId}`)
              .then((rsp) => {
-                 console.log(rsp.data);
                  setCourseInfo(rsp.data);
              })
              .catch((err) => {
                  console.log(err);
              });
-    }, []);
+    }, [courseId]);
 
     return (
         <div>

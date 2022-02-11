@@ -24,7 +24,7 @@ export default function CourseBox(props) {
              .catch((error) => {
                  console.log(error);
              })
-    }, [])
+    }, [studentId])
     
     const onJoinCourseClick = () => {
         setJoinCourseVisible(true);
